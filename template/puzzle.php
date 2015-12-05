@@ -8,6 +8,7 @@ class puzzle
   public $next = "";   // 下关链接
   public $passwd = ""; // 关卡密码
   public $jsCode = ""; // 所要插入的关卡js
+  public $cssCode = ""; // 所要插入的关卡css
   public $unicode = "utf-8";
 
   function __construct($init)
@@ -17,6 +18,7 @@ class puzzle
     if(isset($init["next"])) $this->next = $init["next"];
     if(isset($init["passwd"])) $this->passwd = $init["passwd"];
     if(isset($init["jsCode"])) $this->jsCode = $init["jsCode"];
+    if(isset($init["cssCode"])) $this->jsCode = $init["cssCode"];
     if(isset($init["unicode"])) $this->unicode = $init["unicode"];
   }
 

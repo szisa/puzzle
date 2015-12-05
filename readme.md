@@ -6,7 +6,7 @@
 ## 开辟关卡方法
 1. 拷贝`template`目录下的tp.php文件到你自己决定路径，并修改名字;
 2. 填写关卡编号`stage`，下一关卡路径`next`(选填)，网页title提示`title`(选填)，通关密码`passwd`(选填)等等。
-```
+```php
 $p = new puzzle(array(
   "stage" => 15,
   "next" => "/folder/stage.php",
@@ -14,6 +14,7 @@ $p = new puzzle(array(
   "passwd" => "Password",
   "unicode" => "utf-8",
   "jsCode" => "alert('javascript');",
+  "cssCode" => "#item{display:none;}",
 ));
 ```
 3. 编写谜面。
@@ -25,7 +26,7 @@ $p = new puzzle(array(
  - 通过URL方式通关，则根据需要填写即可。
 3. `title` : 当需要在网页的`<title>`标签填写提示语时，则设置该项；
 4. `passwd` : 选中第b种解谜方式时，则需要填写该项，并且需配合模板中的密码框提交密码。注意不要删除密码检查代码：
-```
+```php
 if($p->check())
 {
   $p->next();
@@ -33,7 +34,8 @@ if($p->check())
 ```
 你也可以针对每个关卡编写自己的检查处理，当`$p->check()`等于true时，表示验证通过。  
 5. `unicode` : 指定页面编码，用于特殊关卡。  
-6. `jsCode` :  设置*页面加载完成后*执行的js代码，此部分代码不会直接出现在页面中，而是过script标签引用外部文件。
+6. `jsCode` :  设置*页面加载完成后*执行的js代码，此部分代码不会直接出现在页面中，而是过`script`标签引用外部文件。
+7. `cssCode` : 设置关卡的独立css代码，此部分代码不会直接出现在页面中，而是过`link`标签引用外部文件。
 
 ## **部署须知**  
 - 网站需部署在根目录或目录要绑定（子）域
