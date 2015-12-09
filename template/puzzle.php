@@ -10,6 +10,8 @@ class puzzle
   public $jsCode = ""; // 所要插入的关卡js
   public $cssCode = ""; // 所要插入的关卡css
   public $unicode = "utf-8";
+  public $sub = false;
+  public $feedback = array();
 
   function __construct($init)
   {
@@ -18,20 +20,31 @@ class puzzle
     if(isset($init["next"])) $this->next = $init["next"];
     if(isset($init["passwd"])) $this->passwd = $init["passwd"];
     if(isset($init["jsCode"])) $this->jsCode = $init["jsCode"];
-    if(isset($init["cssCode"])) $this->jsCode = $init["cssCode"];
+    if(isset($init["cssCode"])) $this->cssCode = $init["cssCode"];
     if(isset($init["unicode"])) $this->unicode = $init["unicode"];
+    if(isset($init["sub"])) $this->sub = $init["sub"];
+    if(isset($init["feedback"])) $this->feedback = $init["feedback"];
   }
 
   function check()
   {
-    if(isset($_POST["passwd"])) {
+    if(isset($_POST["passwd"]))
+    {
 
-      if($_POST["passwd"] == $this->passwd) {
+      if($_POST["passwd"] == $this->passwd)
+      {
         return true;
       }
       else {
         header("Content-Type:text/html;charset=utf-8");
-        echo "密码错误！";
+        if(isset($this->feedback[$_POST["passwd"]]))
+        {
+          echo $this->feedback[$_POST["passwd"]];
+        }
+        else
+        {
+          echo "密码错误！";
+        }
         exit(0);
       }
     }

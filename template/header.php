@@ -7,7 +7,7 @@ $_SESSION["stage"] = $this->stage;
 unset($_SESSION["jsCode"]);
 if($this->jsCode != "") $_SESSION["jsCode"] = $this->jsCode;
 unset($_SESSION["cssCode"]);
-if($this->cssCode != "") $_SESSION["cssCode"] = $this->jsCode;
+if($this->cssCode != "") $_SESSION["cssCode"] = $this->cssCode;
 
 ?>
 <!DOCTYPE HTML>
@@ -21,6 +21,8 @@ if($this->cssCode != "") $_SESSION["cssCode"] = $this->jsCode;
 </head>
 <body>
   <form action="" method="post">
+    <?php if(!$this->sub) { ?>
     <header>
       <h1 class="title"><?=$_CONFIG["name"]?> <br/> <?=($this->stage == 0) ? "Game Rule" : "Stage ".$this->stage?></h1>
     </header>
+    <?php } ?>

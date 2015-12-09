@@ -15,6 +15,11 @@ $p = new puzzle(array(
   "unicode" => "utf-8",
   "jsCode" => "alert('javascript');",
   "cssCode" => "#item{display:none;}",
+  "feedback" => array(
+      "123456" => "额...密码不会这么简单吧...",
+      "super" => "嗯~就差一点了~",
+    ),
+  "sub" => true,
 ));
 ```
 3. 编写谜面。
@@ -36,6 +41,8 @@ if($p->check())
 5. `unicode` : 指定页面编码，用于特殊关卡。  
 6. `jsCode` :  设置*页面加载完成后*执行的js代码，此部分代码不会直接出现在页面中，而是过`script`标签引用外部文件。
 7. `cssCode` : 设置关卡的独立css代码，此部分代码不会直接出现在页面中，而是过`link`标签引用外部文件。
+8. `feedback` : 设置指定密码feedback，此参数仅可以用于包含密码检查的关卡。参数类型必须为关联数组。数组`key`为密码，`value`为feedback。
+9. `sub` : 该值为ture时，表示当前关卡为前一关的子关卡。子关卡将不会显示`header`。
 
 ## **部署须知**  
 - 网站需部署在根目录或目录要绑定（子）域
