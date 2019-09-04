@@ -1,5 +1,5 @@
 # 网页解谜框架
-这是一个网页解谜开发框架，可以通过此框架快速开发属于自己的网页解谜游戏。页面结构参考了[Arthur's Online Riddle](http://riddle.arthurluk.net)。目前用此框架开发过的网页解谜游戏有[创软网页解谜](http://puzzle.sxisa.com)。
+这是一个网页解谜开发框架，可以通过此框架快速开发属于自己的网页解谜游戏。页面结构参考了[Arthur's Online Riddle](http://riddle.arthurluk.net)。目前用此框架开发过的网页解谜游戏有[创软网页解谜](https://p.sxisa.com/stage0.html)。
 
 目前共有两种通关种类：a. URL; b. Password。
 
